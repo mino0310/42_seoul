@@ -6,12 +6,11 @@
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 16:19:23 by minhkim           #+#    #+#             */
-/*   Updated: 2020/11/22 15:55:33 by minhkim          ###   ########.fr       */
+/*   Updated: 2020/11/29 18:49:11 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 static int			read_line(char **line, char **backup, char *newline_ptr)
 {
@@ -43,6 +42,7 @@ int					get_next_line(int fd, char **line)
 	char			*tmp_ptr;
 	int				byte;
 
+	byte = 0;
 	if (fd < 0 || !line || BUFFER_SIZE <= 0)
 		return (-1);
 	if (!backup[fd])
@@ -51,10 +51,7 @@ int					get_next_line(int fd, char **line)
 			&& (byte = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
 		buf[byte] = '\0';
-		if (backup[fd])
-			tmp_ptr = ft_strjoin(backup[fd], buf);
-		else
-			tmp_ptr = ft_strndup(buf, byte);
+		tmp_ptr = ft_strjoin(backup[fd], buf);
 		if (backup[fd])
 			free(backup[fd]);
 		backup[fd] = tmp_ptr;

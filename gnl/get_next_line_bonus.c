@@ -6,7 +6,7 @@
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 17:35:01 by minhkim           #+#    #+#             */
-/*   Updated: 2020/11/19 17:35:17 by minhkim          ###   ########.fr       */
+/*   Updated: 2020/11/29 15:16:00 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,7 @@ int						get_next_line(int fd, char **line)
 			&& (byte = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
 		buf[byte] = '\0';
-		if (backup[fd])
-			tmp_ptr = ft_strjoin(backup[fd], buf);
-		else
-			tmp_ptr = ft_strndup(buf, byte);
+		tmp_ptr = ft_strjoin(backup[fd], buf);
 		if (backup[fd])
 			free(backup[fd]);
 		backup[fd] = tmp_ptr;
