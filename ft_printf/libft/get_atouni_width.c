@@ -6,7 +6,7 @@ int     get_atouni_width(wchar_t wc)
         return (1);
     else if (wc < 0x800)
         return (2);
-    else if (wc < 10000)
+    else if (wc < 0x10000)
         return (3);
     else
         return (4);
