@@ -8,6 +8,10 @@ void        ft_putstr(char *str);
 int         ft_strlen(char *str);
 void        print_hex(int n);
 void        print_HEX(int n);
+void        print_ptr(void *ptr);
+void        print_nbr_u(unsigned int n);
+int         ft_isdigit(int n);
+
 
 int         ft_printf(const char *format, ...)
 {
@@ -20,6 +24,9 @@ int         ft_printf(const char *format, ...)
     int format_on = -1;
     int output_hex;
     int output_HEX;
+    void *output_ptr;
+    unsigned int output_u;
+    int width; 
 
     va_start(ap, format);
 
@@ -31,9 +38,12 @@ int         ft_printf(const char *format, ...)
                 //printf("%% print!\n");
                 ft_putchar('%');
             }
+            else if (format_on == 1 && ft_isdigit(*format)){
+                width = *format - '0';
+            }
             else if (format_on == 1 && *format == 'd'){
                 output_int =va_arg(ap, int);
-                //printf("ft_putnbr call\n");
+
                 ft_putnbr(output_int);
             }
             else if (format_on == 1 && *format == 'c') {
@@ -53,6 +63,15 @@ int         ft_printf(const char *format, ...)
             else if (format_on == 1 && *format == 'X') {
                 output_HEX = va_arg(ap, int);
                 print_HEX(output_HEX);
+            }
+            else if (format_on == 1 && *format == 'p') {
+                output_ptr = va_arg(ap, void*);
+                write(1, "0x", 2);
+                print_ptr(output_ptr);
+            }
+            else if (format_on == 1 && *format == 'u') {
+                output_u = va_arg(ap, unsigned int);
+                print_nbr_u(output_u);
             }
             // 남은 것은 p , i, u 구만
         }
@@ -128,15 +147,54 @@ void        print_HEX(int n)
     write(1, &"0123456789ABCDEF"[n % 16], 1);
 }
 
+void        take_ptr(long unsigned int n) {
+    if (n >= 16)
+        take_ptr(n / 16);
+    write(1, &"0123456789abcdef"[n % 16], 1);
+}
+
+void        print_ptr(void *ptr)
+{
+    long unsigned int n = (long unsigned int)ptr;
+    take_ptr(n);
+}
+
+void		print_nbr_u(unsigned int n)
+{
+	if (n >= 10)
+		print_nbr_u(n / 10);
+	write(1, &"0123456789"[n % 10], 1);
+}
+
+// 숫자인지 아닌지 판별하는 함수
+
+int         ft_isdigit(int a)
+{
+    if (a >= '0' && a <= '9') {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+    
+}
 
 int main(){
-
+/*
     ft_printf("%%%d\n", 123);
-    printf("%%%d\n", -123);
+    printf("%%%d\n", 123);
     ft_printf("ft_pirntf(\"%%d\", 123) = %d\n", 123);
     printf("%x\n", 16);
+    ft_printf("%x\n", 16);
     printf("%X\n", 32);
-    printf("%u", -123);
+    ft_printf("%X\n", 32);
+    printf("%p\n", "aaa5454");
+    ft_printf("%p\n", "aaa5454");
+    printf("%u\n", -1);
+    ft_printf("%u\n", -1); */
+    printf("%5d\n", 123);
+    ft_printf("%5d\n", 123);
 
 
     return 0;
