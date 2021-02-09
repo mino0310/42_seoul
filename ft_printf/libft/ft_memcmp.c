@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/08 12:16:14 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/08 12:18:50 by minhkim          ###   ########.fr       */
+/*   Created: 2020/10/14 16:48:09 by minhkim           #+#    #+#             */
+/*   Updated: 2020/10/15 17:03:00 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int				ft_memcmp(const void *b1, const void *b2, size_t n)
+int					ft_memcmp(const void *b1, const void *b2, size_t n)
 {
 	unsigned char	*s1;
 	unsigned char	*s2;

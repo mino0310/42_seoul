@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/08 14:30:11 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/08 14:31:58 by minhkim          ###   ########.fr       */
+/*   Created: 2020/10/07 19:29:34 by minhkim           #+#    #+#             */
+/*   Updated: 2020/10/15 18:44:00 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_substr(char const *s, unsigned int start, size_t len)
+char		*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char *substr;
+	char	*substr;
 
 	if (!s)
 		return (NULL);

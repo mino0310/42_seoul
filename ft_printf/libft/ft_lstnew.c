@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/08 12:05:29 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/08 12:06:26 by minhkim          ###   ########.fr       */
+/*   Created: 2020/10/15 12:26:52 by minhkim           #+#    #+#             */
+/*   Updated: 2020/10/15 13:22:10 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ t_list		*ft_lstnew(void *content)
 {
 	t_list	*new;
 
-	new = (t_list *)malloc(sizeof(t_list));
-	if (new == NULL)
+	if (!(new = (t_list *)malloc(sizeof(t_list))))
 		return (NULL);
 	new->content = content;
 	new->next = NULL;

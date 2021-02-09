@@ -5,20 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/08 12:19:03 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/08 12:20:17 by minhkim          ###   ########.fr       */
+/*   Created: 2020/10/14 16:43:32 by minhkim           #+#    #+#             */
+/*   Updated: 2020/10/23 07:09:32 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			*ft_memcp(void *dest, const void *src, size_t n)
+void				*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char	*new_dest;
 	unsigned char	*new_src;
 	size_t			i;
 
-	if (!dest && !src)
+	if (!src && !dest)
 		return (0);
 	new_dest = dest;
 	new_src = (unsigned char *)src;

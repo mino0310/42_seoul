@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/08 13:21:00 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/08 13:38:10 by minhkim          ###   ########.fr       */
+/*   Created: 2020/10/14 17:05:38 by minhkim           #+#    #+#             */
+/*   Updated: 2020/10/14 17:11:14 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t			ft_strlcat(char *dest, const char *src, size_t dstsize)
+size_t		ft_strlcat(char *dest, const char *src, size_t dstsize)
 {
-	size_t		i;
-	size_t		dest_len;
-	size_t		src_len;
+	size_t	i;
+	size_t	dest_len;
+	size_t	src_len;
 
 	dest_len = ft_strlen(dest);
 	src_len = ft_strlen(src);

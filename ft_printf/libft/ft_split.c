@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/08 13:02:44 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/08 13:12:06 by minhkim          ###   ########.fr       */
+/*   Created: 2020/10/15 11:29:26 by minhkim           #+#    #+#             */
+/*   Updated: 2020/10/26 15:57:47 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,6 @@ char				**ft_split(char const *s, char c)
 			i++;
 		}
 	}
-	res[i] = '\0';
+	res[i] = 0;
 	return (res);
 }

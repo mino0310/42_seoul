@@ -5,19 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/07 10:52:43 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/07 10:55:43 by minhkim          ###   ########.fr       */
+/*   Created: 2020/10/07 19:09:41 by minhkim           #+#    #+#             */
+/*   Updated: 2020/10/15 16:38:35 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		*ft_calloc(size_t nmemb, size_t size)
+void		*ft_calloc(size_t count, size_t size)
 {
-	void	*mem;
+	void	*ptr;
 
-	if (!(mem = malloc(nmemb * size)))
+	ptr = (void *)malloc(count * size);
+	if (ptr == NULL)
 		return (NULL);
-	ft_bzero(mem, (nmemb * size));
-	return (mem);
+	ft_bzero(ptr, size * count);
+	return (ptr);
 }

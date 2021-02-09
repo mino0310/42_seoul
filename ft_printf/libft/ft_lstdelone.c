@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/07 11:15:39 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/07 11:17:35 by minhkim          ###   ########.fr       */
+/*   Created: 2020/10/15 12:32:30 by minhkim           #+#    #+#             */
+/*   Updated: 2020/10/15 12:59:52 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (lst == NULL || del == NULL)
+	if (lst == NULL)
 		return ;
 	del(lst->content);
 	free(lst);

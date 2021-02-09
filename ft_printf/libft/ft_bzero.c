@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/07 10:50:26 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/07 10:56:55 by minhkim          ###   ########.fr       */
+/*   Created: 2020/10/14 16:42:56 by minhkim           #+#    #+#             */
+/*   Updated: 2020/10/15 15:56:59 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			ft_bzero(void *b, size_t n)
+void				ft_bzero(void *b, size_t n)
 {
 	unsigned char	*dest;
 	size_t			i;
 
-	dest = (unsigned char *)b;
+	dest = b;
 	i = 0;
 	while (i++ < n)
 		*dest++ = 0;

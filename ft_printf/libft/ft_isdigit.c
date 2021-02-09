@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/07 11:01:11 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/07 11:01:46 by minhkim          ###   ########.fr       */
+/*   Created: 2020/10/14 17:40:27 by minhkim           #+#    #+#             */
+/*   Updated: 2020/10/14 17:43:53 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_isdigit(int c)
+int		ft_isdigit(int c)
 {
-	return (c >= '0' && c <= '9');
+	return ((c >= '0' && c <= '9') ? 1 : 0);
 }

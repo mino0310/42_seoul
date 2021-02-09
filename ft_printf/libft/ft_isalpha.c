@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/07 10:58:15 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/07 10:59:46 by minhkim          ###   ########.fr       */
+/*   Created: 2020/10/14 17:36:14 by minhkim           #+#    #+#             */
+/*   Updated: 2020/10/15 13:17:18 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_isalpha(int c)
+int		ft_isalpha(int c)
 {
 	return (((65 <= c) && (90 >= c)) || ((97 <= c) && (122 >= c)));
 }

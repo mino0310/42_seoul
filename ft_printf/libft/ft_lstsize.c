@@ -5,22 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/08 12:06:43 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/08 12:07:22 by minhkim          ###   ########.fr       */
+/*   Created: 2020/10/14 14:58:04 by minhkim           #+#    #+#             */
+/*   Updated: 2020/10/15 13:22:33 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_lstsize(t_list *lst)
+int		ft_lstsize(t_list *lst)
 {
-	int size;
+	int cnt;
 
-	size = 0;
+	cnt = 0;
 	while (lst != NULL)
 	{
+		cnt++;
 		lst = lst->next;
-		size++;
 	}
-	return (size);
+	return (cnt);
 }

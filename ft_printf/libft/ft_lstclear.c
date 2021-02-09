@@ -5,19 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/07 11:14:14 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/07 11:15:20 by minhkim          ###   ########.fr       */
+/*   Created: 2020/10/14 15:03:32 by minhkim           #+#    #+#             */
+/*   Updated: 2020/10/15 13:20:45 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstclear(t_list **lst, void (*del)(void *))
+void			ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list *curr;
-	t_list *next;
+	t_list		*next;
+	t_list		*curr;
 
 	curr = *lst;
+	next = NULL;
 	while (curr)
 	{
 		next = curr->next;

@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/07 11:17:58 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/07 11:23:26 by minhkim          ###   ########.fr       */
+/*   Created: 2020/10/15 12:34:20 by minhkim           #+#    #+#             */
+/*   Updated: 2020/10/15 16:13:43 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstiter(t_list *lst, void (*f)(void *f))
+void		ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (lst == NULL || f == NULL)
 		return ;
