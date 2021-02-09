@@ -18,7 +18,7 @@ int				put_pointer_prefix(char **buf)
 	return (ft_strlen(*buf));
 }
 
-int				put_minus(t_info, char **buf)
+int				put_minus(t_info *info, char **buf)
 {
 	int			len_to_add;
 
@@ -42,7 +42,7 @@ int				put_minus2(int buf_len, t_info *info, char **buf)
 		if (buf_len >= info->width)
 		{
 			*buf = ft_strjoin("-", *buf, 2);
-			len_to_add;
+			len_to_add = 1;
 		}
 		else if (buf_len < info->width)
 			*buf[0] = '-';

@@ -26,9 +26,9 @@ int				print_type(va_list ap, t_info *info)
 	else if (type == 's')
 		ret = print_string(va_arg(ap, char *), info);
 	else if (type == 'd' || type == 'i')
-		ret = print_nbr(va_arg(ag, int), info);
+		ret = print_nbr(va_arg(ap, int), info);
 	else if (type == 'x' || type == 'X' || type == 'u')
-		ret = print_nbr(va_arg(ag, unsigned int), info);
+		ret = print_nbr(va_arg(ap, unsigned int), info);
 	else if (type == 'p')
 		ret = print_nbr(va_arg(ap, unsigned long long), info);
 	return (ret);
@@ -90,7 +90,7 @@ int				parse_format(va_list ap, char *format)
 		{
 			init_info(info);
 			while (format[++i] != '\0' && !(ft_strchr(TYPE, format[i])))
-				check_info(ap, info, i);
+				check_info(ap, format, info, i);
 			info->type = format[i++];
 			if ((info->minus == 1 || info->prec > -1) && info->type != '%')
 				info->zero = 0;
@@ -110,4 +110,8 @@ int				ft_printf(const char *format, ...)
 	ret = parse_format(ap, (char *)format);
 	va_end(ap);
 	return (ret);
+}
+
+int main(){
+	ft_printf("zzzz");
 }
