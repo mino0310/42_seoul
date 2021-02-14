@@ -6,7 +6,7 @@
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 12:02:09 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/13 17:02:46 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/02/14 11:14:16 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int				fill_padding_by_flag(char **buf, t_info *info)
 
 	if (info->width <= (int)ft_strlen(*buf))
 		return ((int)ft_strlen(*buf));
-	padded_str = (char *)malloc(sizeof(char) * (info->width - ft_strlen(*buf) + 1));
+	padded_str = (char *)malloc(sizeof(char) *
+			(info->width - ft_strlen(*buf) + 1));
 	i = 0;
 	while ((size_t)i < info->width - ft_strlen(*buf))
 	{

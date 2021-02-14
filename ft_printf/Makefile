@@ -6,7 +6,7 @@
 #    By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/07 12:40:49 by minhkim           #+#    #+#              #
-#    Updated: 2021/02/09 10:41:58 by minhkim          ###   ########.fr        #
+#    Updated: 2021/02/14 11:23:55 by minhkim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ LIBFT		= libft
 LIBFT_LIB	= libft.a
 
 SRCS		= ./ft_printf.c ./utils.c ./print_char.c \
-			  			./print_nbr.c ./ print_string.c
+			  			./print_nbr.c ./print_string.c
 OBJS		= $(SRCS:.c=.o)
 INCS		= .
 RM			= rm -f
@@ -27,7 +27,7 @@ CFLAGS		= -Wall -Wextra -Werror
 		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I$(INCS)
 
 $(NAME) : $(OBJS)
-		make all -C $(LIBFT) /
+		make all -C $(LIBFT)/
 		cp $(LIBFT)/$(LIBFT_LIB) $(NAME)
 		$(LIBC) $(NAME) $(OBJS)
 
@@ -42,3 +42,5 @@ clean :
 		make clean -C $(LIBFT)
 
 re : fclean all
+
+.Phony: fclean clean all
