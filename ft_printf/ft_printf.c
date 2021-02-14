@@ -6,32 +6,32 @@
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 09:40:18 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/07 10:23:02 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/02/09 12:35:01 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int				print_type(va_list ap, t_info *info)
+int				print_by_type(va_list ap, t_info *info)
 {
-	int			ret;
+	int			print_len;
 	char		type;
 
-	ret = 0;
+	print_len = 0;
 	type = info->type;
 	if (type == 'c')
-		ret = print_char(va_arg(ap, int), info);
+		print_len = print_char(va_arg(ap, int), info);
 	else if (type == '%')
-		ret = print_char('%', info);
+		print_len = print_char('%', info);
 	else if (type == 's')
-		ret = print_string(va_arg(ap, char *), info);
+		print_len = print_string(va_arg(ap, char *), info);
 	else if (type == 'd' || type == 'i')
-		ret = print_nbr(va_arg(ap, int), info);
+		print_len = print_nbr(va_arg(ap, int), info);
 	else if (type == 'x' || type == 'X' || type == 'u')
-		ret = print_nbr(va_arg(ap, unsigned int), info);
+		print_len = print_nbr(va_arg(ap, unsigned int), info);
 	else if (type == 'p')
-		ret = print_nbr(va_arg(ap, unsigned long long), info);
-	return (ret);
+		print_len = print_nbr(va_arg(ap, unsigned long long), info);
+	return (print_len);
 }
 
 void			check_width_and_prec(va_list ap,
@@ -40,9 +40,9 @@ void			check_width_and_prec(va_list ap,
 	if (ft_isdigit(format[i]))
 	{
 		if (info->prec == -1)
-			info->width = info->width * 10 + format[i] - 48;
+			info->width = info->width * 10 + (format[i] - 48);
 		else
-			info->prec = info->prec * 10 + format[i] - 48;
+			info->prec = info->prec * 10 + (format[i] - 48);
 	}
 	else if (format[i] == '*')
 	{
@@ -75,17 +75,17 @@ void			check_info(va_list ap, char *format, t_info *info, int i)
 int				parse_format(va_list ap, char *format)
 {
 	int				i;
-	int				ret;
+	int				print_len;
 	t_info			*info;
 
 	i = 0;
-	ret = 0;
+	print_len = 0;
 	if (!(info = malloc(sizeof(t_info) * 1)))
 		return (-1);
 	while (format[i] != '\0')
 	{
 		while (format[i] != '%' && format[i] != '\0')
-			ret += ft_putchar(format[i++]);
+			print_len += ft_putchar(format[i++]);
 		if (format[i] == '%')
 		{
 			init_info(info);
@@ -94,11 +94,11 @@ int				parse_format(va_list ap, char *format)
 			info->type = format[i++];
 			if ((info->minus == 1 || info->prec > -1) && info->type != '%')
 				info->zero = 0;
-			ret += print_type(ap, info);
+			print_len += print_type(ap, info);
 		}
 	}
 	free(info);
-	return (ret);
+	return (print_len);
 }
 
 int				ft_printf(const char *format, ...)
@@ -110,8 +110,4 @@ int				ft_printf(const char *format, ...)
 	ret = parse_format(ap, (char *)format);
 	va_end(ap);
 	return (ret);
-}
-
-int main(){
-	ft_printf("zzzz");
 }
