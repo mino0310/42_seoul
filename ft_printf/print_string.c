@@ -6,7 +6,7 @@
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 12:02:09 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/07 12:20:19 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/02/13 17:02:46 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,41 +30,41 @@ char			*parse_buf(char *str, int end, int len)
 	return (buf);
 }
 
-int				put_width_str(char **buf, t_info *info)
+int				fill_padding_by_flag(char **buf, t_info *info)
 {
-	char		*width;
+	char		*padded_str;
 	int			i;
 
 	if (info->width <= (int)ft_strlen(*buf))
 		return ((int)ft_strlen(*buf));
-	width = (char *)malloc(sizeof(char) * (info->width - ft_strlen(*buf) + 1));
+	padded_str = (char *)malloc(sizeof(char) * (info->width - ft_strlen(*buf) + 1));
 	i = 0;
 	while ((size_t)i < info->width - ft_strlen(*buf))
 	{
-		width[i] = (info->zero == 1) ? '0' : ' ';
+		padded_str[i] = (info->zero == 1) ? '0' : ' ';
 		i++;
 	}
-	width[i] = '\0';
+	padded_str[i] = '\0';
 	if (info->minus == 0)
-		*buf = ft_strjoin(width, *buf, 3);
+		*buf = ft_strjoin(padded_str, *buf);
 	else
-		*buf = ft_strjoin(*buf, width, 3);
+		*buf = ft_strjoin(*buf, padded_str);
 	return (info->width);
 }
 
 int				print_string(char *str, t_info *info)
 {
-	int			ret;
+	int			print_len;
 	char		*buf;
 
-	ret = 0;
+	print_len = 0;
 	if (str == NULL)
 		str = "(null)";
 	if (info->prec == -1 || (size_t)info->prec > ft_strlen(str))
 		info->prec = ft_strlen(str);
 	buf = parse_buf(str, info->prec, ft_strlen(str));
-	ret = put_width_str(&buf, info);
+	print_len = fill_padding_by_flag(&buf, info);
 	ft_putstr(buf);
 	free(buf);
-	return (ret);
+	return (print_len);
 }

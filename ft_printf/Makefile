@@ -6,7 +6,7 @@
 #    By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/07 12:40:49 by minhkim           #+#    #+#              #
-#    Updated: 2021/02/07 12:45:57 by minhkim          ###   ########.fr        #
+#    Updated: 2021/02/09 10:41:58 by minhkim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS		= ./ft_printf.c ./utils.c ./print_char.c \
 OBJS		= $(SRCS:.c=.o)
 INCS		= .
 RM			= rm -f
-LIBC		= ar r
+LIBC		= ar rc
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 

@@ -6,7 +6,7 @@
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 12:27:41 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/07 12:38:31 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/02/13 16:45:18 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,18 @@ void				check_info(va_list ap, char *format,
 		t_info *info, int i);
 void				check_width_and_prec(va_list ap, char *format,
 		t_info *info, int i);
-int					print_type(va_list ap, t_info *info);
+int					print_by_type(va_list ap, t_info *info);
 int					print_char(int c, t_info *info);
-int					put_width(int width, int len, int zero);
+int					write_width_by_flag(int width, int len, int zero_flag);
 int					print_string(char *str, t_info *info);
 char				*parse_buf(char *str, int end, int len);
-int					put_width_str(char **buf, t_info *info);
+int					fill_padding_by_flag(char **buf, t_info *info);
 int					print_nbr(unsigned long long nbr, t_info *info);
 int					put_prec_str(unsigned long long nbr,
 		t_info *info, char **buf);
 int					put_minus(t_info *info, char **buf);
 int					put_minus2(int buf_len, t_info *info, char **buf);
-int					put_pointer_prefix(char **buf);
+int					join_hexa_prefix(char **buf);
 void				init_info(t_info *info);
 int					ft_nbrlen(unsigned long long nbr, t_info *info);
 char				*ft_baseset(char type);
