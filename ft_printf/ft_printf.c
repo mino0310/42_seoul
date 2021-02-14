@@ -94,7 +94,7 @@ int				parse_format(va_list ap, char *format)
 			info->type = format[i++];
 			if ((info->minus == 1 || info->prec > -1) && info->type != '%')
 				info->zero = 0;
-			print_len += print_type(ap, info);
+			print_len += print_by_type(ap, info);
 		}
 	}
 	free(info);
