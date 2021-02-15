@@ -6,7 +6,7 @@
 #    By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/07 12:40:49 by minhkim           #+#    #+#              #
-#    Updated: 2021/02/14 11:23:55 by minhkim          ###   ########.fr        #
+#    Updated: 2021/02/15 12:03:33 by minhkim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ LIBFT_LIB	= libft.a
 
 SRCS		= ./ft_printf.c ./utils.c ./print_char.c \
 			  			./print_nbr.c ./print_string.c
+SRCS		= ./ft_printf.c ./utils.c\
+			  ./print_char.c ./print_nbr.c ./print_string.c
 OBJS		= $(SRCS:.c=.o)
 INCS		= .
 RM			= rm -f
@@ -24,22 +26,25 @@ CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 
 .c.o :
-		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I$(INCS)
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I$(INCS)
 
 $(NAME) : $(OBJS)
 		make all -C $(LIBFT)/
 		cp $(LIBFT)/$(LIBFT_LIB) $(NAME)
 		$(LIBC) $(NAME) $(OBJS)
+	make all -C $(LIBFT)/
+	cp $(LIBFT)/$(LIBFT_LIB) $(NAME)
+	$(LIBC) $(NAME) $(OBJS)
 
 all : $(NAME)
 
 fclean : clean
-		$(RM) $(NAME)
-		make fclean -C $(LIBFT)
+	$(RM) $(NAME)
+	make fclean -C $(LIBFT)
 
 clean :
-		$(RM) $(OBJS)
-		make clean -C $(LIBFT)
+	$(RM) $(OBJS)
+	make clean -C $(LIBFT)
 
 re : fclean all
 

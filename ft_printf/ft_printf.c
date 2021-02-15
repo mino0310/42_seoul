@@ -6,7 +6,7 @@
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 09:40:18 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/09 12:35:01 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/02/15 12:01:45 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void			check_width_and_prec(va_list ap,
 	if (ft_isdigit(format[i]))
 	{
 		if (info->prec == -1)
-			info->width = info->width * 10 + (format[i] - 48);
+			info->width = info->width * 10 + format[i] - 48;
 		else
-			info->prec = info->prec * 10 + (format[i] - 48);
+			info->prec = info->prec * 10 + format[i] - 48;
 	}
 	else if (format[i] == '*')
 	{

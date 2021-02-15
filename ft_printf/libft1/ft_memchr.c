@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: daelee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/14 10:53:21 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/15 11:48:38 by minhkim          ###   ########.fr       */
+/*   Created: 2020/02/28 13:36:53 by daelee            #+#    #+#             */
+/*   Updated: 2020/04/09 17:26:59 by daelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_putstr(char *s)
+void	*ft_memchr(const void *b, int c, size_t n)
 {
-	int i;
-
-	i = 0;
-	while (s[i])
+	while (n--)
 	{
-		write(1, &s[i], 1);
-		i++;
+		if (*(unsigned char *)b == (unsigned char)c)
+			return ((void *)b);
+		b++;
 	}
-	return (i);
+	return (0);
 }

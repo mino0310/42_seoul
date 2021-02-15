@@ -47,9 +47,9 @@ int				fill_padding_by_flag(char **buf, t_info *info)
 	}
 	padded_str[i] = '\0';
 	if (info->minus == 0)
-		*buf = ft_strjoin(padded_str, *buf);
+		*buf = ft_strjoin(padded_str, *buf, 3);
 	else
-		*buf = ft_strjoin(*buf, padded_str);
+		*buf = ft_strjoin(*buf, padded_str, 3);
 	return (info->width);
 }
 

@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: daelee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/14 10:53:21 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/15 11:48:38 by minhkim          ###   ########.fr       */
+/*   Created: 2020/03/01 21:41:43 by daelee            #+#    #+#             */
+/*   Updated: 2020/04/09 11:01:35 by daelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_putstr(char *s)
+char		*ft_strdup(const char *str)
 {
-	int i;
+	int		i;
+	int		len;
+	char	*new_str;
 
+	len = 0;
+	while (str[len])
+		len++;
+	new_str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!(new_str))
+		return (NULL);
 	i = 0;
-	while (s[i])
+	while (str[i])
 	{
-		write(1, &s[i], 1);
+		new_str[i] = str[i];
 		i++;
 	}
-	return (i);
+	new_str[i] = '\0';
+	return (new_str);
 }

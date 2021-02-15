@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: daelee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/14 10:53:21 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/15 11:48:38 by minhkim          ###   ########.fr       */
+/*   Created: 2020/02/28 22:01:07 by daelee            #+#    #+#             */
+/*   Updated: 2020/04/09 17:36:10 by daelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_putstr(char *s)
+char		*ft_strchr(const char *s, int c)
 {
-	int i;
+	char	find;
+	int		i;
 
+	find = (unsigned char)c;
 	i = 0;
-	while (s[i])
+	while (s[i] != '\0')
 	{
-		write(1, &s[i], 1);
+		if (s[i] == find)
+			return ((char *)s + i);
 		i++;
 	}
-	return (i);
+	if (s[i] == find)
+		return ((char *)s + i);
+	return (0);
 }
