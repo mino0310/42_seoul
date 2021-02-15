@@ -14,7 +14,7 @@
 
 int				join_hexa_prefix(char **buf)
 {
-	*buf = ft_strjoin("0x", *buf);
+	*buf = ft_strjoin("0x", *buf, 2);
 	return (ft_strlen(*buf));
 }
 
@@ -26,7 +26,7 @@ int				put_minus(t_info *info, char **buf)
 	if ((info->type == 'i' || info->type == 'd') &&
 			info->zero == 0 && info->nbr_sign == -1)
 	{
-		*buf = ft_strjoin("-", *buf);
+		*buf = ft_strjoin("-", *buf, 2);
 		len_to_add = 1;
 	}
 	return (len_to_add);
@@ -41,7 +41,7 @@ int				put_minus2(int buf_len, t_info *info, char **buf)
 	{
 		if (buf_len >= info->width)
 		{
-			*buf = ft_strjoin("-", *buf);
+			*buf = ft_strjoin("-", *buf, 2);
 			len_to_add = 1;
 		}
 		else if (buf_len < info->width)

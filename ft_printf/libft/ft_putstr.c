@@ -2,8 +2,13 @@
 
 int		ft_putstr(char *s)
 {
-	if (!(s))
-		return (0);
-	return (write(1, s, ft_strlen(s)));
+	int i;
 
+	i = 0;
+	while (s[i])
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
+	return (i);
 }

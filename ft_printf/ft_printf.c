@@ -40,9 +40,9 @@ void			check_width_and_prec(va_list ap,
 	if (ft_isdigit(format[i]))
 	{
 		if (info->prec == -1)
-			info->width = info->width * 10 + (format[i] - 48);
+			info->width = info->width * 10 + format[i] - 48;
 		else
-			info->prec = info->prec * 10 + (format[i] - 48);
+			info->prec = info->prec * 10 + format[i] - 48;
 	}
 	else if (format[i] == '*')
 	{
