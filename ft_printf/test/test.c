@@ -26,6 +26,33 @@ typedef struct		s_info
     int				nbr_sign;
 }					t_info;
 
+void				init_flag(t_info *flag_struct);
+int					ft_nbrlen(unsigned long long nbr, t_info *flag_struct);
+char				*ft_baseset(char type);
+size_t				ft_strlen(const char *s);
+int					ft_putchar(char c);
+char				*ft_strchr(const char *s, int c);
+int					ft_putstr(char *s);
+char				*ft_strjoin(char *s1, char *s2, int free_target);
+int					print_space_or_zero(int width, int str_len, int zero_flag);
+int					print_char(int c, t_info *flag_struct);
+char				*parse_buf(char *str, int prec, int str_len);
+int					fill_space_or_zero(char **buf, t_info *flag_struct);
+int					print_string(char *str, t_info *flag_struct);
+int					write_nbr_by_prec(unsigned long long nbr,
+		t_info *flag_struct, char **buf);
+int					join_minus(t_info *flag_struct, char **buf);
+int					join_hexa_prefix(char **buf);
+int					join_minus2(int buf_len, t_info *flag_struct, char **buf);
+int					print_nbr(unsigned long long nbr, t_info *flag_struct);
+void				fill_width_or_prec(va_list ap, char *format,
+		t_info *flag_struct, int format_index);
+void				fill_flag(va_list ap, char *format, t_info *flag_struct, int format_index);
+int					print_by_type(va_list ap, t_info *flag_struct);
+int					parse_format(va_list ap, char *format);
+int					ft_isdigit(int c);
+
+
 void				init_flag(t_info *flag_struct)
 {
 	flag_struct->minus = 0;
@@ -35,6 +62,11 @@ void				init_flag(t_info *flag_struct)
 	flag_struct->type = 0;
 	flag_struct->nbr_base = 10;
 	flag_struct->nbr_sign = 1;
+}
+
+int					ft_isdigi:ㅈㅂt(int c)
+{
+	return (c >= '0' && c <= '9');
 }
 
 int					ft_nbrlen(unsigned long long nbr, t_info *flag_struct)
@@ -78,21 +110,19 @@ int					ft_putchar(char c)
 	return (write(1, &c, 1));
 }
 
-char				ft_strchr(const char *s, int c)
+char		*ft_strchr(const char *s, int c)
 {
-	char			find;
-	size_t			i;
+	char	find;
 
-	find = (unsigned char)c;
-	i = 0;
-	while (s[i] != '\0')
+	find = (char)c;
+	while (*s)
 	{
-		if (s[i] == find)
-			return ((char *)s + i);
-		i++;
+		if (*s == find)
+			return ((char *)s);
+		s++;
 	}
-	if (s[i] == find)
-		return ((char *)s + i);
+	if (*s == find)
+		return ((char *)s);
 	return (0);
 }
 
@@ -123,7 +153,7 @@ char				*ft_strjoin(char *s1, char *s2, int free_target)
 		return (0);
 	i = -1;
 	while (++i < s1_len)
-		result[i] = s[i];
+		result[i] = s1[i];
 	if (free_target == 1 || free_target == 3)
 		free(s1);
 	j = 0;
@@ -142,7 +172,7 @@ int					print_space_or_zero(int width, int str_len, int zero_flag)
 	print_len = 0;
 	while (str_len < width)
 	{
-		if (zero == 1)
+		if (zero_flag == 1)
 			ft_putchar('0');
 		else
 			ft_putchar(' ');
@@ -158,10 +188,14 @@ int					print_char(int c, t_info *flag_struct)
 
 	print_len = 0;
 	if (flag_struct->type == '%' && flag_struct->minus == 1)
-		info->zero = 0;
+		flag_struct->zero = 0;
 	if (flag_struct->minus == 1)
 		print_len += ft_putchar(c);
 	print_len += print_space_or_zero(flag_struct->width, 1, flag_struct->zero);
+	if (flag_struct->minus == 0)
+		print_len += ft_putchar(c);
+	return (print_len);
+
 }
 
 char				*parse_buf(char *str, int prec, int str_len)
@@ -202,8 +236,7 @@ int					fill_space_or_zero(char **buf, t_info *flag_struct)
 		*buf = ft_strjoin(flag_buf, *buf, 3);
 	else
 		*buf = ft_strjoin(*buf, flag_buf, 3);
-	return (flag_buf->width);
-	
+	return (flag_struct->width);
 }
 
 int					print_string(char *str, t_info *flag_struct)
@@ -218,9 +251,9 @@ int					print_string(char *str, t_info *flag_struct)
 			(size_t)flag_struct->prec > ft_strlen(str))
 		flag_struct->prec = ft_strlen(str);
 	print_buf = parse_buf(str, flag_struct->prec, ft_strlen(str));
-	print_len = fill_space_or_zero(char *str, t_info *flag_struct);
+	print_len = fill_space_or_zero(&print_buf, flag_struct);
 	ft_putstr(print_buf);
-	free(buf);
+	free(print_buf);
 	return (print_len);
 }
 
@@ -312,7 +345,7 @@ int					print_nbr(unsigned long long nbr, t_info *flag_struct)
 	buf_len = write_nbr_by_prec(nbr, flag_struct, &buf);
 	buf_len += join_minus(flag_struct, &buf);
 	if (flag_struct->type == 'p')
-		buf_len = join_hexa_prefix(&buf, flag_struct);
+		buf_len = join_hexa_prefix(&buf);
 	print_len = fill_space_or_zero(&buf, flag_struct);
 	print_len += join_minus2(buf_len, flag_struct, &buf);
 	ft_putstr(buf);
@@ -320,19 +353,17 @@ int					print_nbr(unsigned long long nbr, t_info *flag_struct)
 	return (print_len);
 }
 
-
-
 void				fill_width_or_prec(va_list ap, char *format,
 		t_info *flag_struct, int format_index)
 {
-	if (ft_isdigit(format[i]))
+	if (ft_isdigit(format[format_index]))
 	{
 		if (flag_struct->prec == -1)
-			flag_struct->width = flag_struct->width * 10 + format[i] - 48;
+			flag_struct->width = flag_struct->width * 10 + format[format_index] - 48;
 		else
-			flag_struct->prec = flag_struct->prec * 10 + format[i] - 48;
+			flag_struct->prec = flag_struct->prec * 10 + format[format_index] - 48;
 	}
-	else if (format[i] == '*')
+	else if (format[format_index] == '*')
 	{
 		if (flag_struct->prec == -1) 
 		{
@@ -344,7 +375,7 @@ void				fill_width_or_prec(va_list ap, char *format,
 			}
 		}
 		else
-			flag_struct->prec = va_arg(ap, int):
+			flag_struct->prec = va_arg(ap, int);
 	}
 }
 
@@ -357,7 +388,7 @@ void				fill_flag(va_list ap, char *format, t_info *flag_struct, int format_inde
 		flag_struct->minus = 1;
 	else if (format[format_index] == '.')
 		flag_struct->prec = 0;
-	else if (ft_isdigit(format[i]) || format[i] == '*')
+	else if (ft_isdigit(format[format_index]) || format[format_index] == '*')
 		fill_width_or_prec(ap, format, flag_struct, format_index);
 }
 
@@ -384,11 +415,11 @@ int					print_by_type(va_list ap, t_info *flag_struct)
 }
 
 
-int parse_format(va_list ap, char *format) 
+int					parse_format(va_list ap, char *format) 
 {
-    int i;
-    int print_len;
-    t_info *flag_struct;
+    int				i;
+    int				print_len;
+    t_info			*flag_struct;
 
     i = 0;
     print_len = 0;
@@ -404,7 +435,7 @@ int parse_format(va_list ap, char *format)
 				fill_flag(ap, format, flag_struct, i);
 			flag_struct->type = format[i++];
 			if ((flag_struct->minus == 1 || flag_struct->prec > -1) && flag_struct->type != '%')
-					flag_struct->zero = 0; // prec > -1 일 경우엔 빈칸이 출력되는데?
+					flag_struct->zero = 0;
 			print_len += print_by_type(ap, flag_struct);
 		}
     }
@@ -421,4 +452,11 @@ int ft_printf(const char *format, ...)
     print_len = parse_format(ap, (char *)format);
     va_end(ap);
     return (print_len);
+}
+#include <stdio.h>
+int main(void) {
+	printf("my printf :\n%d\n", 123);
+	ft_printf("ft_printf :\n%d\n", 123);
+
+	return 0;
 }
