@@ -34,8 +34,6 @@ int					print_char(int c, t_info *flag_struct)
 	int				print_len;
 
 	print_len = 0;
-	if (flag_struct->type == '%' && flag_struct->minus == 1)
-		flag_struct->zero = 0;
 	if (flag_struct->minus == 1)
 		print_len += ft_putchar(c);
 	print_len += print_space_or_zero(flag_struct->width, 1, flag_struct->zero);
