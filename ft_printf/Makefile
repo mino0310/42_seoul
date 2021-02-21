@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/02/07 12:40:49 by minhkim           #+#    #+#              #
-#    Updated: 2021/02/15 12:03:33 by minhkim          ###   ########.fr        #
+#    Created: 2021/02/21 11:27:25 by minhkim           #+#    #+#              #
+#    Updated: 2021/02/21 11:41:11 by minhkim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,9 +32,6 @@ $(NAME) : $(OBJS)
 		make all -C $(LIBFT)/
 		cp $(LIBFT)/$(LIBFT_LIB) $(NAME)
 		$(LIBC) $(NAME) $(OBJS)
-	make all -C $(LIBFT)/
-	cp $(LIBFT)/$(LIBFT_LIB) $(NAME)
-	$(LIBC) $(NAME) $(OBJS)
 
 all : $(NAME)
 
@@ -47,5 +44,3 @@ clean :
 	make clean -C $(LIBFT)
 
 re : fclean all
-
-.Phony: fclean clean all

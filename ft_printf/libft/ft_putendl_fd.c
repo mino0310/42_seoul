@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/15 12:20:18 by minhkim           #+#    #+#             */
-/*   Updated: 2020/10/15 12:21:07 by minhkim          ###   ########.fr       */
+/*   Created: 2021/02/21 12:28:03 by minhkim           #+#    #+#             */
+/*   Updated: 2021/02/21 12:28:04 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	if (!(s) || fd < 0)
 		return ;

@@ -5,14 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/14 17:41:24 by minhkim           #+#    #+#             */
-/*   Updated: 2020/10/14 17:43:38 by minhkim          ###   ########.fr       */
+/*   Created: 2021/02/21 12:25:39 by minhkim           #+#    #+#             */
+/*   Updated: 2021/02/21 12:25:41 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int		ft_isprint(int c)
 {
-	return (c >= 32 && c < 127);
+	return (c >= 32 && c <= 126);
 }

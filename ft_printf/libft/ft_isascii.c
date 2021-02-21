@@ -5,14 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/14 17:39:24 by minhkim           #+#    #+#             */
-/*   Updated: 2020/10/14 17:44:06 by minhkim          ###   ########.fr       */
+/*   Created: 2021/02/21 12:25:17 by minhkim           #+#    #+#             */
+/*   Updated: 2021/02/21 12:25:19 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int		ft_isascii(int c)
 {
-	return ((c >= 0 && c <= 127) ? 1 : 0);
+	return (c >= 0 && c <= 127);
 }

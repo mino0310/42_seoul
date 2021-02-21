@@ -5,16 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/15 11:56:22 by minhkim           #+#    #+#             */
-/*   Updated: 2020/10/23 09:15:47 by minhkim          ###   ########.fr       */
+/*   Created: 2021/02/21 12:27:52 by minhkim           #+#    #+#             */
+/*   Updated: 2021/02/21 12:27:53 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_putchar_fd(char c, int fd)
+int		ft_putchar(char c)
 {
-	if (fd < 0)
-		return ;
-	write(fd, &c, 1);
+	return (write(1, &c, 1));
 }

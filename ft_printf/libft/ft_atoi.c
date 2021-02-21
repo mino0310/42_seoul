@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/14 17:27:55 by minhkim           #+#    #+#             */
-/*   Updated: 2020/10/26 15:07:08 by minhkim          ###   ########.fr       */
+/*   Created: 2021/02/21 12:24:18 by minhkim           #+#    #+#             */
+/*   Updated: 2021/02/21 12:24:20 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int					ft_isspace(char c)
+int			ft_isspace(char c)
 {
 	if (c == ' ' || c == '\n' || c == '\t' ||
 			c == '\v' || c == '\f' || c == '\r')
@@ -21,11 +21,11 @@ int					ft_isspace(char c)
 		return (0);
 }
 
-int					ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
-	long long int	nbr;
-	long			sign;
-	size_t			i;
+	long	nbr;
+	long	sign;
+	size_t	i;
 
 	nbr = 0;
 	sign = 1;
