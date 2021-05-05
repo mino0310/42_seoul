@@ -54,3 +54,4 @@ int             main(void)
     mlx_loop(mlx->mlx_ptr);
     return (0);
 }
+

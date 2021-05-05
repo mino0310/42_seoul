@@ -49,7 +49,7 @@ int             main(void)
     param_init(&param);
     mlx_ptr = mlx_init();
     win_ptr = mlx_new_window(mlx_ptr, 500, 500, "mlx_project");
-    printf("-----------------\n");
+    printf("-------------l----\n");
     printf("'W key' : add 1 to x.\n");
 	printf("'S key': Subtract 1 from x\n");
 	printf("'ESC key': Exit this program\n");
