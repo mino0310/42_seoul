@@ -85,8 +85,7 @@
 
 int arr[500];
 int top = -1;
-void push(int a) {
-	arr[++top] = a;
+void push(int a) { 
 }
 void pop() {
 	top--;
