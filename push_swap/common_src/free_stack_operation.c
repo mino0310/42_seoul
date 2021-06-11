@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   free_stack_operation.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minhkim <minhkim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 09:34:11 by minhkim           #+#    #+#             */
-/*   Updated: 2021/06/10 09:43:22 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/06/11 09:49:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
+// 연결리스트의 모든 노드를 free 시켜주는 함수
 void		free_stack(t_stack **a)
 {
 	t_stack *index;
@@ -26,7 +26,7 @@ void		free_stack(t_stack **a)
 	}
 	*a = NULL;
 }
-
+// 연산 연결리스트를 모두 메모리 해제 시키는 함수
 void		free_operation(t_op **op)
 {
 	t_op	*index;

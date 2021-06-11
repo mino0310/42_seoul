@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   print_stack_ab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minhkim <minhkim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:15:19 by minhkim           #+#    #+#             */
-/*   Updated: 2021/06/10 11:21:22 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/06/11 09:55:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include <stdio.h>
-
+// 두 개의 스택을 모두 출력하는 함수
 void		print_stack_ab(t_stack **a, t_stack **b)
 {
 	t_stack *index_a;

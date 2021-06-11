@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   function_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minhkim <minhkim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 10:09:28 by minhkim           #+#    #+#             */
-/*   Updated: 2021/06/10 10:40:22 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/06/11 09:52:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
+// n을 값으로 하는 노드를 만들어 반환하는 함수
 t_stack			*create_stack_node(int n)
 {
 	t_stack		*node;
@@ -21,7 +21,7 @@ t_stack			*create_stack_node(int n)
 	node->next = NULL;
 	return (node);
 }
-
+// 연결리스트의 노드의 총 개수를 반환하는 함수
 int				get_num_of_stack_node(t_stack **head)
 {
 	t_stack		*index;
@@ -38,13 +38,13 @@ int				get_num_of_stack_node(t_stack **head)
 	}
 	return (num);
 }
-
+// 스택 노드의 가장 앞에 해당 노드를 추가하는 함수
 void			add_stack_node_front(t_stack **head, t_stack *node)
 {
 	node->next = *head;
 	*head = node;
 }
-
+// 스택 노드의 가장 뒤에 해당 노드를 추가하는 함수
 void			add_stack_node_back(t_stack **head, t_stack *node)
 {
 	t_stack		*index;

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_operation_list.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minhkim <minhkim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:29:13 by minhkim           #+#    #+#             */
-/*   Updated: 2021/06/10 11:37:36 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/06/11 09:41:29 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
+// 연산리스트에 따라 실제로 연산을 실행하는 함수
 void			get_operation_list(t_op **op, char *s, t_stack **a, t_stack **b)
 {
 	t_op		*new;
