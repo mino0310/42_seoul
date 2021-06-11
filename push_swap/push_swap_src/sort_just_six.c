@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
+// 아직 완전히 이해는 안되네
 int             sort_just_six(t_stack **a, t_stack **b, t_op **op, int len)
 {
     int         mid;
