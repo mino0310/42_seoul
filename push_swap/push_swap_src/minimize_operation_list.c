@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 12:03:10 by minhkim           #+#    #+#             */
-/*   Updated: 2021/06/11 09:56:33 by marvin           ###   ########.fr       */
+/*   Updated: 2021/06/11 09:57:32 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int				get_delete_operation(t_op **op)
 	}
 	return (0);
 }
-
+// 연산을 최소화하는 함수
 void			minimize_operation_list(t_op **op)
 {
 	while (get_merge_operation(op))
