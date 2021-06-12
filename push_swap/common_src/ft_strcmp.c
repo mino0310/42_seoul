@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minhkim <minhkim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: minhkim <minhkim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 09:46:15 by minhkim           #+#    #+#             */
-/*   Updated: 2021/06/10 09:47:34 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/06/12 12:13:52 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int			ft_strcmp(char *s1, char *s2)
 	int		i;
 
 	i = 0;
-	while (str[i])
+	while (s1[i])
 	{
 		if (s1[i] != s2[i])
 			return (0);

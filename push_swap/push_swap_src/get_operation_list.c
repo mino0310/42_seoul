@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_operation_list.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: minhkim <minhkim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:29:13 by minhkim           #+#    #+#             */
-/*   Updated: 2021/06/11 09:41:29 by marvin           ###   ########.fr       */
+/*   Updated: 2021/06/12 12:20:25 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-// 연산리스트에 따라 실제로 연산을 실행하는 함수
+// 연산문자열에 따라 연산 노드를 연결리스트에 추가하고 실제로 연산을 실행하는 함수
 void			get_operation_list(t_op **op, char *s, t_stack **a, t_stack **b)
 {
 	t_op		*new;

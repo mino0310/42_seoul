@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_argv_to_stack.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: minhkim <minhkim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 08:54:51 by minhkim           #+#    #+#             */
-/*   Updated: 2021/06/11 09:48:39 by marvin           ###   ########.fr       */
+/*   Updated: 2021/06/12 12:20:20 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int				error_check_overlap(t_stack **a)
 	}
 	return (0);
 }
-// main 함수의 매개변수를 에러체크하는 함수
+// main 함수의 매개변수를 에러체크하며 argv값들을 연결리스트로 만들어주는 함수
 int				check_argv_to_stack(t_stack **a, int argc, char **argv)
 {
 	int			i;
@@ -78,7 +78,7 @@ int				check_argv_to_stack(t_stack **a, int argc, char **argv)
 		if (error_check_atoi(argv[i]))
 			return (1);
 		n = ft_atoi(argv[i]);
-		if (error_chec_int(n))
+		if (error_check_int(n))
 			return (1);
 		add_stack_node_front(a, create_stack_node(n));
 		i--;

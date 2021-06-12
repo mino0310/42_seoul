@@ -51,6 +51,6 @@ int             sort_just_three_b(t_stack **a, t_stack **b, t_op **op)
     else if (len == 2)
         case_two_b(b, op);
     else if (len == 3)
-        case_three(b, op, len);
+        case_three_b(b, op, len);
     return (0);
 }
