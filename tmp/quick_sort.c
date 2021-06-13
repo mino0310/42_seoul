@@ -1,36 +1,48 @@
 #include <stdio.h>
 
-void quickSort(int arr[], int left, int right) {
-    int i = left, j = right;
-    int pivot = arr[(left + right) / 2];
-    int temp;
-    do 
+int number = 10;
+int data[] = {1, 10, 5, 8, 7, 6, 4, 3, 2, 9};
+
+void show() {
+    int i;
+    for (i = 0; i < number; i++)
     {
-        while (arr[i] < pivot) i++;
-        while (arr[j] > pivot) j--;
-        if (i <= j)
-        {
-            temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
+        printf("%d ", data[i]);
+    }
+}
+
+void quickSort(int *data, int start, int end)
+{
+    if (start >= end) {
+        return ;
+    }
+
+    int key = start;
+    int i = start + 1, j = end, temp;
+
+    while (i <= j) {
+        while (i <= end && data[i] <= data[key])
             i++;
+        while (j > start && data[j] >= data[key])
             j--;
+        if (i > j){
+            temp = data[j];
+            data[j] = data[key];
+            data[key] = temp;
+        } else
+        {
+            temp = data[i];
+            data[i] = data[j];
+            data[j] = temp;
         }
-        printf("check\n");
-    } while (i <= j);
-    // recursion
-    if (left < j) quickSort(arr, left, j);
-    if (i < right) quickSort(arr, i, right);
+    }
+    quickSort(data, start, j - 1);
+    quickSort(data, j + 1, end);
 }
 
 int main(void)
 {
-    int arr[10] = {1, 4, 6, 8, 2, 5, 7, 9, 0};
-    quickSort(arr, 0, 8);
-    
-    for (int i = 0; i < 9; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
+    quickSort(data, 0, number - 1);
+    show();
     return 0;
 }
