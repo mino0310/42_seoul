@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: minhkim <minhkim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/14 16:58:00 by minhkim           #+#    #+#             */
-/*   Updated: 2020/10/15 15:10:51 by minhkim          ###   ########.fr       */
+/*   Created: 2021/06/10 09:46:15 by minhkim           #+#    #+#             */
+/*   Updated: 2021/06/12 12:13:52 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-size_t		ft_strlen(const char *s)
+int			ft_strcmp(char *s1, char *s2)
 {
-	int		len;
+	int		i;
 
-	len = 0;
-	while (*s)
+	i = 0;
+	while (s1[i])
 	{
-		len++;
-		s++;
+		if (s1[i] != s2[i])
+			return (0);
+		i++;
 	}
-	return (len);
+	if (s1[i] != '\0' || s2[i] != '\0')
+		return (0);
+	return (1);
 }

@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: minhkim <minhkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/15 12:32:30 by minhkim           #+#    #+#             */
-/*   Updated: 2020/10/15 12:59:52 by minhkim          ###   ########.fr       */
+/*   Created: 2021/06/10 09:48:57 by minhkim           #+#    #+#             */
+/*   Updated: 2021/06/10 09:49:21 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-void		ft_lstdelone(t_list *lst, void (*del)(void *))
+int			ft_strlen(char *s)
 {
-	if (lst == NULL)
-		return ;
-	del(lst->content);
-	free(lst);
+	int		i;
+
+	i = 0;
+	while (s[i])
+	{
+		i++;
+	}
+	return (i);
 }

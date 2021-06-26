@@ -3,83 +3,83 @@
 /*                                                        :::      ::::::::   */
 /*   function_operation.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: minhkim <minhkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 09:49:34 by minhkim           #+#    #+#             */
-/*   Updated: 2021/06/11 09:50:51 by marvin           ###   ########.fr       */
+/*   Created: 2021/06/26 17:01:47 by minhkim           #+#    #+#             */
+/*   Updated: 2021/06/26 17:20:34 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-// 문자열을 연산값으로 한 연산 노드를 만들어 반환하는 함수
-t_op			*create_op_list_node(char *s)
-{
-	t_op		*node;
 
-	node = (t_op *)malloc(sizeof(t_op)); // 여기서 에러체크가 필요할 듯
+t_op				*create_op_list_node(char *s)
+{
+	t_op			*node;
+
+	node = (t_op *)malloc(sizeof(t_op));
 	node->s = ft_strdup(s);
 	node->next = NULL;
 	return (node);
 }
-// 연결리스트의 가장 앞에 해당 노드를 추가하는 함수
-void			add_op_list_front(t_op **head, t_op *node)
+
+void				add_op_list_front(t_op **head, t_op *node)
 {
 	node->next = *head;
 	*head = node;
 }
-// 연결리스트의 가장 뒤에 해당 노드를 추가하는 함수
-void			add_op_list_back(t_op **head, t_op *node)
-{
-	t_op		*index;
 
-	index = *head;
-	if (index == NULL)
+void				add_op_list_back(t_op **head, t_op *node)
+{
+	t_op			*idx;
+
+	idx = *head;
+	if (idx == NULL)
 		*head = node;
 	else
 	{
-		while (index->next != NULL)
-			index = index->next;
-		index->next = node;
+		while (idx->next != NULL)
+			idx = idx->next;
+		idx->next = node;
 	}
 }
-//연결리스트의 n번째에 해당 노드를 추가하는 함수
-void			add_op_list_middle(t_op **head, t_op *node, int n)
-{
-	t_op		*index;
-	t_op		*temp;
 
-	index = *head;
+void				add_op_list_middle(t_op **head, t_op *node, int n)
+{
+	t_op			*idx;
+	t_op			*tmp;
+
+	idx = *head;
 	if (n == 1)
 	{
 		add_op_list_front(head, node);
 		return ;
 	}
-	n = n - 2;
+	n -= 2;
 	while (n--)
-		index = index->next;
-	temp = index->next;
-	index->next = node;
-	node->next = temp;
+		idx = idx->next;
+	tmp = idx->next;
+	idx->next = node;
+	node->next = tmp;
 }
-// 연산 연결리스트 중 n 번째 연산 노드를 제거하는 함수
-void			del_op_list(t_op **head, int n)
-{
-	t_op		*index;
-	t_op		*temp;
 
-	index = *head;
+void				del_op_list(t_op **head, int n)
+{
+	t_op			*idx;
+	t_op			*tmp;
+
+	idx = *head;
 	if (n == 1)
 	{
 		*head = (*head)->next;
-		free(index->s);
-		free(index);
+		free(idx->s);
+		free(idx);
 		return ;
 	}
-	n = n - 2;
+	n -= 2;
 	while (n--)
-		index = index->next;
-	temp = index->next;
-	index->next = temp->next;
-	free(temp->s);
-	free(temp);
+		idx = idx->next;
+	tmp = idx->next;
+	idx->next = tmp->next;
+	free(tmp->s);
+	free(tmp);
 }

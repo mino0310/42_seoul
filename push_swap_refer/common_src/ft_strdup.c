@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: minhkim <minhkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/14 16:41:59 by minhkim           #+#    #+#             */
-/*   Updated: 2020/10/15 13:26:40 by minhkim          ###   ########.fr       */
+/*   Created: 2021/06/10 09:47:46 by minhkim           #+#    #+#             */
+/*   Updated: 2021/06/10 09:48:44 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-void				*ft_memset(void *dest, int c, size_t n)
+char		*ft_strdup(char *s)
 {
-	unsigned char	*new_dest;
-	unsigned char	src;
-	size_t			i;
+	int		i;
+	int		n;
+	char	*dest;
 
-	new_dest = dest;
-	src = c;
 	i = 0;
-	while (i++ < n)
-		*new_dest++ = src;
+	n = ft_strlen(s);
+	if (!(dest = (char *)malloc(sizeof(char) * (n + 1))))
+		return (NULL);
+	while (i < n)
+	{
+		dest[i] = s[i];
+		i++;
+	}
+	dest[i] = '\0';
 	return (dest);
 }

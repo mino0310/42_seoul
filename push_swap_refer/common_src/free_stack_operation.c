@@ -3,42 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   free_stack_operation.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minhkim <minhkim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/26 16:58:19 by minhkim           #+#    #+#             */
-/*   Updated: 2021/06/26 17:00:19 by minhkim          ###   ########.fr       */
+/*   Created: 2021/06/10 09:34:11 by minhkim           #+#    #+#             */
+/*   Updated: 2021/06/11 09:49:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void				free_stack(t_stack **a)
+// 연결리스트의 모든 노드를 free 시켜주는 함수
+void		free_stack(t_stack **a)
 {
-	t_stack			*idx;
-	t_stack			*tmp;
+	t_stack *index;
+	t_stack *temp;
 
-	idx = *a;
-	while (idx != NULL)
+	index = *a;
+	while (index != NULL)
 	{
-		tmp = idx;
-		idx = idx->next;
-		free(tmp);
+		temp = index;
+		index = index->next;
+		free(temp);
 	}
 	*a = NULL;
 }
-
-void				free_operation(t_op **op)
+// 연산 연결리스트를 모두 메모리 해제 시키는 함수
+void		free_operation(t_op **op)
 {
-	t_op			*idx;
-	t_op			*tmp;
+	t_op	*index;
+	t_op	*temp;
 
-	idx = *op;
-	while (idx != NULL)
+	index = *op;
+	while (index != NULL)
 	{
-		tmp = idx;
-		idx = idx->next;
-		free(tmp->s);
-		free(tmp);
+		temp = index;
+		index = index->next;
+		free(temp->s);
+		free(temp);
 	}
 	*op = NULL;
 }
