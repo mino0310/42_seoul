@@ -3,50 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minhkim <minhkim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: minhkim <minhkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 11:43:25 by minhkim           #+#    #+#             */
-/*   Updated: 2021/06/27 15:34:06 by minhkim          ###   ########.fr       */
+/*   Created: 2021/06/27 15:17:46 by minhkim           #+#    #+#             */
+/*   Updated: 2021/06/27 15:36:57 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int				get_partition(int *sort, int start, int end)
+int					get_partition(int *sort, int start, int end)
 {
-	int			pivot;
-	int			i;
-	int			index;
-	int			temp;
+	int				pivot;
+	int				i;
+	int				idx;
+	int				tmp;
 
 	pivot = sort[end];
-	index = start;
+	idx = start;
 	i = start;
 	while (i < end)
 	{
 		if (sort[i] <= pivot)
 		{
-			temp = sort[i];
-			sort[i] = sort[index];
-			sort[index] = temp;
-			index++;
+			tmp = sort[i];
+			sort[i] = sort[idx];
+			sort[idx] = tmp;
+			idx++;
 		}
 		i++;
 	}
-	temp = sort[index];
-	sort[index] = sort[end];
-	sort[end] = temp;
-	return (index);
+	tmp = sort[idx];
+	sort[idx] = sort[end];
+	sort[end] = tmp;
+	return (idx);
 }
 
-void			quick_sort(int *sort, int start, int end)
+void				quick_sort(int *sort, int start, int end)
 {
-	int			index;
+	int				idx;
 
 	if (start < end)
 	{
-		index = get_partition(sort, start, end);
-		quick_sort(sort, start, index - 1);
-		quick_sort(sort, index + 1, end);
+		idx = get_partition(sort, start, end);
+		quick_sort(sort, start, idx - 1);
+		quick_sort(sort, idx + 1, end);
 	}
 }
