@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operation_process.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: minhkim <minhkim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 10:40:50 by minhkim           #+#    #+#             */
-/*   Updated: 2021/06/11 09:55:14 by marvin           ###   ########.fr       */
+/*   Updated: 2021/06/28 13:39:03 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void			bot_stack_node_to_top(t_stack **head)
 	t_stack		*last;
 
 	temp = *head;
-	if (*head != NULL & (*head)->next != NULL)
+	if (*head != NULL && (*head)->next != NULL)
 	{
 		while (temp->next->next != NULL)
 			temp = temp->next;
