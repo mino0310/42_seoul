@@ -40,7 +40,7 @@ int             sort_less_than_three_a(t_stack **a, t_stack **b, t_op **op, int 
         max_idx = get_value_index(a, max);
         if (max_idx == 3)
             sort_less_than_two_a(a, op);
-        else if (max == 2)
+        else if (max_idx == 2)
             max_is_two_a(a, b, op);
         else
         {

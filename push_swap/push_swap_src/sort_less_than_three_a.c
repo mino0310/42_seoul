@@ -6,7 +6,7 @@
 /*   By: minhkim <minhkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 14:49:00 by minhkim           #+#    #+#             */
-/*   Updated: 2021/06/28 15:55:29 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/06/28 16:04:35 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void				max_is_two_a(t_stack **a, t_stack **b, t_op **op)
 	sort_less_than_two_a(a, op);
 }
 
-int					sort_less_than_three_a(t_stack **a, t_stack **b, t_op **op, int len)
+int					sort_less_than_three_a(t_stack **a, t_stack **b,
+		t_op **op, int len)
 {
 	int				max;
 	int				max_idx;
@@ -39,6 +40,13 @@ int					sort_less_than_three_a(t_stack **a, t_stack **b, t_op **op, int len)
 		max_idx = get_value_index(a, max);
 		if (max_idx == 3)
 			sort_less_than_two_a(a, op);
-		else if (max == 2)
+		else if (max_idx == 2)
+			max_is_two_a(a, b, op);
+		else
+		{
+			get_operation_list(op, "sa", a, b);
+			max_is_two_a(a, b, op);
+		}
 	}
+	return (1);
 }
