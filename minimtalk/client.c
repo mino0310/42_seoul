@@ -61,40 +61,34 @@ int main(int ac, char **av)
 
 	pid = getpid();
 	printf("client pid = %d\n", pid);
-	// SIGUSR1 = 0;
-	// SIGUSR1 = 1;
-	// printf("SIGUSR1 = %d \n SIGUSR2 = %d\n", SIGUSR1, SIGUSR2);
-	// printf("%s is received! \n", av[2]);
-	char *str = (char *)malloc(sizeof(char) * 9);
-	
-	int tmp = av[2][0] - '0';
-	int i = 7;
-	while(tmp / 2 != 1)
-	{
-		if (tmp % 2 == 0)
-		{
-			str[i] = '0';
-			write(1, "zero!\n", 5);
-		}
-		else{
-			str[i] = '1';
-			write(1, "one!\n", 4);
-		}
-		tmp /= 2;
-		i--;
-	}
-	while (i)
-		str[i--] = '0';
 
-	for (i = 0; i < 8; i++) {
-		if (str[i] == '0')
-			kill(ft_atoi(av[1]), SIGUSR1);
-		else
-			kill(ft_atoi(av[1]), SIGUSR2);
-		usleep(1);
+	int k = 0;
+	while (av[2][k] != '\0')
+	{
+		int *str = (int *)malloc(sizeof(int) * 9);
+
+		char tmp = av[2][k] - 'a' + 1;
+		int i;
+		for (i = 0; tmp != 0; i++)
+		{
+			str[i] = tmp % 2;
+			tmp /= 2;
+		}
+
+		for (i = 7; i >= 0; i--) {
+			usleep(1);
+			if (str[i] == 0)
+				kill(ft_atoi(av[1]), SIGUSR1);
+			else if (str[i] == 1)
+				kill(ft_atoi(av[1]), SIGUSR2);
+			usleep(1);
+		}
+		free(str);
+		k++;
 	}
-	// kill(ft_atoi(av[1]), SIGUSR1);
-	// kill(ft_atoi(av[1]), SIGUSR2);
+
+
+	
 
 	
 	return 0;
