@@ -7,10 +7,10 @@ void handler(int signo)
 {
 	// printf()
 	if (signo == SIGUSR1){
-		printf("SIGUSR1 come!\n");
+		write(1, "0", 1);
 	} 
 	else if (signo == SIGUSR2) {
-		printf("SIGUSR2 come! \n");
+		write(1, "1", 1);
 	}
 	// printf("sig = %d", signo);
 	

@@ -1,6 +1,8 @@
 #include <signal.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
+
 
 int					ft_isspace(char c)
 {
@@ -38,6 +40,21 @@ int					ft_atoi(const char *str)
 	return (sign * nbr);
 }
 
+char *char_to_binary(char c, char *str)
+{
+	unsigned int tmp = c;
+	int i = 7;
+	while (tmp / 2 != 1)
+	{
+		str[i] = tmp % 2;
+		i--;
+	}
+	while (i)
+		str[i--] = '0';
+	return str;
+}
+
+
 int main(int ac, char **av)
 {
 	pid_t	pid;
@@ -47,8 +64,33 @@ int main(int ac, char **av)
 	// SIGUSR1 = 0;
 	// SIGUSR1 = 1;
 	// printf("SIGUSR1 = %d \n SIGUSR2 = %d\n", SIGUSR1, SIGUSR2);
-	for (int i = 0; i < 10; i++) {
-		kill(ft_atoi(av[1]), SIGUSR1);
+	// printf("%s is received! \n", av[2]);
+	char *str = (char *)malloc(sizeof(char) * 9);
+	
+	int tmp = av[2][0] - '0';
+	int i = 7;
+	while(tmp / 2 != 1)
+	{
+		if (tmp % 2 == 0)
+		{
+			str[i] = '0';
+			write(1, "zero!\n", 5);
+		}
+		else{
+			str[i] = '1';
+			write(1, "one!\n", 4);
+		}
+		tmp /= 2;
+		i--;
+	}
+	while (i)
+		str[i--] = '0';
+
+	for (i = 0; i < 8; i++) {
+		if (str[i] == '0')
+			kill(ft_atoi(av[1]), SIGUSR1);
+		else
+			kill(ft_atoi(av[1]), SIGUSR2);
 		usleep(1);
 	}
 	// kill(ft_atoi(av[1]), SIGUSR1);
