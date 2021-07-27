@@ -3,9 +3,17 @@
 #include <stdio.h>
 
 
-void print_hello(int signo)
+void handler(int signo)
 {
-	printf("hello\n");
+	// printf()
+	if (signo == SIGUSR1){
+		printf("SIGUSR1 come!\n");
+	} 
+	else if (signo == SIGUSR2) {
+		printf("SIGUSR2 come! \n");
+	}
+	// printf("sig = %d", signo);
+	
 }
 
 int main(int ac, char **av)
@@ -14,8 +22,16 @@ int main(int ac, char **av)
 
 	while (1)
 	{
-		signal(SIGUSR1, (void *)print_hello);
-		sleep(1);
+		signal(SIGUSR1, handler);
+		signal(SIGUSR2, handler);
+		// if (SIGUSR1 == 1) {
+		// 	printf("1 come!\n");
+		// } else if (SIGUSR2 == 2){
+		// 	printf("0 come\n");
+		// } else {
+		// 	printf("else!\n");
+		// }
+		// sleep(1);
 	}
 
 	return 0;

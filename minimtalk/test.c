@@ -58,3 +58,40 @@
 
 //     return 0;
 // }
+
+// #include <unistd.h>
+// #include <stdlib.h>
+// #include <stdio.h>
+
+// int main(void){
+//     printf("-->Before exec function\n");
+
+//     if(execlp("ls", "ls", "-a", (char *)NULL) == -1) {
+//         perror("execlp");
+//         exit(1);
+
+//     }
+
+//     printf("--> After exec function \n");
+//     return 0;
+
+// }
+// #include <signal.h>si
+
+
+int main(void)
+{
+    int a;
+    char c;
+    a = '4';
+    c = '4';
+    write(1, &"12345"[2], 1);
+    write(1, "\n", 1);
+    // write(1, &'1', 1);
+    // write(1, &"1"[0], 1);
+    // write(1, &a, 1);
+    // write(1, (void *)"12345"[3], 1);
+    write(1, &"5", 1);
+    write(1, &'5', 1);
+    return 0;
+}

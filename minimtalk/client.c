@@ -44,7 +44,15 @@ int main(int ac, char **av)
 
 	pid = getpid();
 	printf("client pid = %d\n", pid);
-	kill(ft_atoi(av[1]), SIGUSR1);
+	// SIGUSR1 = 0;
+	// SIGUSR1 = 1;
+	// printf("SIGUSR1 = %d \n SIGUSR2 = %d\n", SIGUSR1, SIGUSR2);
+	for (int i = 0; i < 10; i++) {
+		kill(ft_atoi(av[1]), SIGUSR1);
+		usleep(1);
+	}
+	// kill(ft_atoi(av[1]), SIGUSR1);
+	// kill(ft_atoi(av[1]), SIGUSR2);
 
 	
 	return 0;
