@@ -78,7 +78,7 @@
 // }
 // #include <signal.h>si
 
-
+/*
 int main(void)
 {
     int a;
@@ -94,4 +94,13 @@ int main(void)
     write(1, &"5", 1);
     write(1, &'5', 1);
     return 0;
+}*/
+
+
+int main(void)
+{
+    int i = 3;
+    
+    printf("%d", 3 & 0x01);
+	return 0;
 }
