@@ -2,6 +2,8 @@
     "C_Cpp.errorSquiggles": "Disabled",
     "files.associations": {
         "glut.h": "c",
-        "algorithm": "c"
+        "algorithm": "c",
+        "stdlib.h": "c",
+        "minitalk.h": "c"
     }
 }
