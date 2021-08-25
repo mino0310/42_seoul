@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <signal.h>
 // // extern char **environ;
 
 // // int main(void){
@@ -97,10 +98,41 @@ int main(void)
 }*/
 
 
-int main(void)
-{
-    int i = 3;
+// int main(void)
+// {
+//     int i = 3;
     
-    printf("%d", 3 & 0x01);
-	return 0;
-}
+//     printf("%d", 3 & 0x01);
+// 	return 0;
+// }
+
+// void sig_handler_1(int sig, siginfo_t *siginfo, void *unused)
+// {
+//     if (sig == SIGUSR1){
+//         printf("ok?\n");
+//     }
+//     else if (sig == SIGUSR2) {
+//         printf("not ok\n");
+//     }
+//     else if (sig == SIGINT) {
+//         printf("oooo\n");
+//     }
+// }
+
+// void sig_handler_2(int signo){
+//     printf("asfasdfasdf\n");
+// }
+// int main(void)
+// {
+//     struct sigaction e;
+//     printf("%d", getpid());
+//     e.sa_flags = SA_SIGINFO;
+//     e.sa_sigaction = sig_handler_1;
+//     sigaction(SIGINT, &e, 0);
+//     // sigaction(SIGUSR1, &e, 0);
+//     // sigaction(SIGUSR2, &e, 0);
+//     // signal(SIGINT, (void *)sig_handler_1);
+//     while (1)
+//         pause();
+//     return 0;
+// }
