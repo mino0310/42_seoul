@@ -69,8 +69,8 @@ void sig_handler(int sig, siginfo_t *siginfo, void *unused)
 	// 받은 바이트의 개수를 저장할 변수를 선언해두고 처음만 0으로 초기화해둔다.
 	static int received_bytes = 0;
 
-	(void)siginfo;
-	(void)unused;
+	// (void)siginfo;
+	// (void)unused;
 	// 들어온 시그널이 SIGUSR1인지 파악.
 	if (sig == SIGUSR1)
 	{
@@ -100,12 +100,16 @@ int main(int argc, char **argv)
 	e.sa_flags = SA_SIGINFO;
 	// sighandler 지정
 	e.sa_sigaction = sig_handler;
+	// 시그널에 따라 시행할 핸들러가 지정된 구조체를 시그널과 매칭.
 	sigaction(SIGUSR1, &e, 0);
 	sigaction(SIGUSR2, &e, 0);
+	// 보낸 바이트 출력
 	ft_putstr_fd("Send Bytes  : ", 1);
 	ft_putnbr_fd(ft_strlen(argv[2]), 1);
 	ft_putchar_fd('\n', 1);
+	// 보낼 문자열을 바이트 단위로 전송
 	send_byte(argv[2], ft_atoi(argv[1]));
+	// 대기
 	while (1)
 		pause();
 	return 0;
