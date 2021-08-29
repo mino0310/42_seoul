@@ -2,11 +2,11 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "../libft/libft.h"
+#include "./libft/libft.h"
 
-void fin_connect(pid_t server_pid)
+void	fin_connect(pid_t server_pid)
 {
-	int i;
+	int	i;
 
 	i = 8;
 	while (i--)
@@ -17,12 +17,12 @@ void fin_connect(pid_t server_pid)
 	exit(0);
 }
 
-void send_byte(char *s, pid_t pid)
+void	send_byte(char *s, pid_t pid)
 {
-	static int i = 8;
-	static unsigned char c;
-	static char	*str;
-	static pid_t server_pid;
+	static int				i = 8;
+	static unsigned char	c;
+	static char				*str;
+	static pid_t			server_pid;
 
 	if (s)
 	{
@@ -43,9 +43,9 @@ void send_byte(char *s, pid_t pid)
 		kill(server_pid, SIGUSR2);
 }
 
-void sig_handler(int sig, siginfo_t *siginfo, void *unused)
+void	sig_handler(int sig, siginfo_t *siginfo, void *unused)
 {
-	static int received_bytes = 0;
+	static int	received_bytes = 0;
 
 	(void)siginfo;
 	(void)unused;
@@ -57,10 +57,10 @@ void sig_handler(int sig, siginfo_t *siginfo, void *unused)
 	send_byte(0, 0);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	struct sigaction e;
-	
+	struct sigaction	e;
+
 	if (argc != 3 || !(100 <= ft_atoi(argv[1]) && ft_atoi(argv[1]) <= 99998))
 	{
 		ft_putstr_fd("Usage : ./client [99 < Server PID < 99999] [Message]", 1);
@@ -78,5 +78,5 @@ int main(int argc, char **argv)
 	send_byte(argv[2], ft_atoi(argv[1]));
 	while (1)
 		pause();
-	return 0;
+	return (0);
 }

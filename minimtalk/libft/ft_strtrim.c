@@ -6,13 +6,13 @@
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 11:23:03 by minhkim           #+#    #+#             */
-/*   Updated: 2020/10/15 18:32:00 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/08/29 15:10:47 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_find_start(char const *s1, char const *set)
+int	ft_find_start(char const *s1, char const *set)
 {
 	size_t	len;
 	size_t	i;
@@ -28,7 +28,7 @@ int			ft_find_start(char const *s1, char const *set)
 	return (i);
 }
 
-int			ft_find_end(char const *s1, char const *set)
+int	ft_find_end(char const *s1, char const *set)
 {
 	size_t	len;
 	size_t	i;
@@ -44,7 +44,7 @@ int			ft_find_end(char const *s1, char const *set)
 	return (len - i);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
 	size_t	end;
@@ -58,7 +58,8 @@ char		*ft_strtrim(char const *s1, char const *set)
 	end = ft_find_end(s1, set);
 	if (start >= end)
 		return (ft_strdup(""));
-	if (!(str = (char *)malloc(sizeof(char) * (end - start + 1))))
+	str = (char *)malloc(sizeof(char) * (end - start + 1));
+	if (!str)
 		return (NULL);
 	ft_strlcpy(str, s1 + start, end - start + 1);
 	return (str);

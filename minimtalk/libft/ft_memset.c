@@ -6,13 +6,13 @@
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 16:41:59 by minhkim           #+#    #+#             */
-/*   Updated: 2020/10/15 13:26:40 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/08/29 15:20:49 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void				*ft_memset(void *dest, int c, size_t n)
+void	*ft_memset(void *dest, int c, size_t n)
 {
 	unsigned char	*new_dest;
 	unsigned char	src;

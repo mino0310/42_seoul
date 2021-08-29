@@ -6,13 +6,13 @@
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 16:46:56 by minhkim           #+#    #+#             */
-/*   Updated: 2020/10/15 13:23:52 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/08/29 15:08:13 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void				*ft_memchr(const void *b, int c, size_t n)
+void	*ft_memchr(const void *b, int c, size_t n)
 {
 	unsigned char	*new_b;
 	unsigned char	find;

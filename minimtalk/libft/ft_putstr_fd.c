@@ -6,13 +6,13 @@
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 12:05:27 by minhkim           #+#    #+#             */
-/*   Updated: 2020/11/29 16:58:40 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/08/29 15:21:47 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
 	if (!(s) || fd < 0)
 		return ;

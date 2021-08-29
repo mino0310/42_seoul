@@ -2,13 +2,13 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "../libft/libft.h"
+#include "./libft/libft.h"
 
-void sig_handler(int sig, siginfo_t *siginfo, void *unused)
+void	sig_handler(int sig, siginfo_t *siginfo, void *unused)
 {
-	static unsigned char c = 0x00;
-	static int	cnt = 0;
-	static pid_t client_pid = 0;
+	static unsigned char	c = 0x00;
+	static int				cnt = 0;
+	static pid_t			client_pid = 0;
 
 	(void)unused;
 	if (!client_pid)
@@ -33,9 +33,9 @@ void sig_handler(int sig, siginfo_t *siginfo, void *unused)
 	}
 }
 
-int main(void)
+int	main(void)
 {
-	struct sigaction e;
+	struct sigaction	e;
 
 	ft_putstr_fd("Server PID [", 1);
 	ft_putnbr_fd(getpid(), 1);
@@ -46,5 +46,5 @@ int main(void)
 	sigaction(SIGUSR2, &e, 0);
 	while (1)
 		pause();
-	return 0;
+	return (0);
 }

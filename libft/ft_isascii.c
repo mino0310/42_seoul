@@ -6,13 +6,16 @@
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 17:39:24 by minhkim           #+#    #+#             */
-/*   Updated: 2020/10/14 17:44:06 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/08/28 14:59:39 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isascii(int c)
+int	ft_isascii(int c)
 {
-	return ((c >= 0 && c <= 127) ? 1 : 0);
+	if (c >= 0 && c <= 127)
+		return (1);
+	else
+		return (0);
 }

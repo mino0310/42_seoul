@@ -6,22 +6,28 @@
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 11:48:45 by minhkim           #+#    #+#             */
-/*   Updated: 2020/10/15 13:18:45 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/08/29 15:50:56 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long int			ft_abs(long int nbr)
+long int	ft_abs(long int nbr)
 {
-	return ((nbr < 0) ? -nbr : nbr);
+	if (nbr < 0)
+		return (-nbr);
+	else
+		return (nbr);
 }
 
-int					ft_len(long int nbr)
+int	ft_len(long int nbr)
 {
-	int				len;
+	int	len;
 
-	len = (nbr <= 0) ? 1 : 0;
+	if (nbr <= 0)
+		len = 1;
+	else
+		len = 0;
 	while (nbr)
 	{
 		nbr = nbr / 10;
@@ -30,15 +36,19 @@ int					ft_len(long int nbr)
 	return (len);
 }
 
-char				*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	int				len;
-	int				sign;
-	char			*c;
+	int		len;
+	int		sign;
+	char	*c;
 
-	sign = (n < 0) ? -1 : 1;
+	if (n < 0)
+		sign = -1;
+	else
+		sign = 1;
 	len = ft_len(n);
-	if ((c = (char *)malloc(sizeof(char) * len + 1)) == NULL)
+	c = (char *)malloc(sizeof(char) * len + 1);
+	if (!c)
 		return (NULL);
 	c[len] = '\0';
 	len--;

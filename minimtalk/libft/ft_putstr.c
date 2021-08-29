@@ -6,15 +6,15 @@
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 10:35:07 by minhkim           #+#    #+#             */
-/*   Updated: 2021/02/09 10:36:16 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/08/29 15:37:16 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i])

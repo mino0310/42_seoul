@@ -6,20 +6,20 @@
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 12:21:14 by minhkim           #+#    #+#             */
-/*   Updated: 2020/10/26 15:24:56 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/08/29 15:08:57 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			print_nbr(int n, int fd)
+void	print_nbr(int n, int fd)
 {
 	if (n >= 10)
 		print_nbr(n / 10, fd);
 	write(fd, &"0123456789"[n % 10], 1);
 }
 
-void			ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	if (fd < 0)
 		return ;

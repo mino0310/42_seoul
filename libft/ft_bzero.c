@@ -6,13 +6,13 @@
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 16:42:56 by minhkim           #+#    #+#             */
-/*   Updated: 2020/10/15 15:56:59 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/08/29 15:11:39 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void				ft_bzero(void *b, size_t n)
+void	ft_bzero(void *b, size_t n)
 {
 	unsigned char	*dest;
 	size_t			i;

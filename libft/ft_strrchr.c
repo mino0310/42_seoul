@@ -6,17 +6,17 @@
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 17:15:29 by minhkim           #+#    #+#             */
-/*   Updated: 2020/10/15 15:14:22 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/08/29 15:32:32 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	char		*last;
-	char		find;
-	size_t		i;
+	char	*last;
+	char	find;
+	size_t	i;
 
 	last = (char *)s;
 	find = (char)c;

@@ -6,16 +6,16 @@
 /*   By: minhkim <minhkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 11:29:26 by minhkim           #+#    #+#             */
-/*   Updated: 2020/10/26 15:57:47 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/08/29 15:24:57 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			word_cnt(char const *s, char c)
+static int	word_cnt(char const *s, char c)
 {
-	int				cnt;
-	int				i;
+	int	cnt;
+	int	i;
 
 	cnt = 0;
 	i = 0;
@@ -30,10 +30,10 @@ static int			word_cnt(char const *s, char c)
 	return (cnt);
 }
 
-static int			word_len(char const *s, char c)
+static int	word_len(char const *s, char c)
 {
-	int				len;
-	int				i;
+	int	len;
+	int	i;
 
 	len = 0;
 	i = 0;
@@ -45,9 +45,9 @@ static int			word_len(char const *s, char c)
 	return (len);
 }
 
-static void			*isfree(char **str)
+static void	*isfree(char **str)
 {
-	int				i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -58,13 +58,14 @@ static void			*isfree(char **str)
 	return (NULL);
 }
 
-char				**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char			**res;
-	int				i;
-	int				j;
+	char	**res;
+	int		i;
+	int		j;
 
-	if (!s || !(res = (char **)malloc(sizeof(char *) * (word_cnt(s, c) + 1))))
+	res = (char **)malloc(sizeof(char *) * (word_cnt(s, c) + 1));
+	if (!s || !res)
 		return (NULL);
 	i = 0;
 	while (*s)
@@ -74,12 +75,12 @@ char				**ft_split(char const *s, char c)
 			s++;
 		if (*s && *s != c)
 		{
-			if (!(res[i] = (char *)malloc(sizeof(char) * word_len(s, c) + 1)))
+			res[i] = (char *)malloc(sizeof(char) * word_len(s, c) + 1);
+			if (!res[i])
 				return (isfree(res));
 			while (*s && *s != c)
 				res[i][j++] = (char)*s++;
-			res[i][j] = '\0';
-			i++;
+			res[i++][j] = '\0';
 		}
 	}
 	res[i] = 0;
