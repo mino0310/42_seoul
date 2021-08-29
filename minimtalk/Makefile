@@ -9,7 +9,6 @@ all : $(LIBFT) $(SERVER) $(CLIENT)
 
 $(LIBFT) : 
 	@make -C libft
-
 $(SERVER) : server.o
 	@$(CC) server.o $(LIBS) -o $@
 
