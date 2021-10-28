@@ -6,13 +6,13 @@
 /*   By: minhkim <minhkim@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 10:13:34 by minhkim           #+#    #+#             */
-/*   Updated: 2021/10/28 10:13:35 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/10/28 10:37:57 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	jputchar(char c, int fd)
+void	my_putchar(char c, int fd)
 {
 	write(fd, &c, 1);
 }

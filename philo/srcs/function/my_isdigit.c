@@ -6,13 +6,13 @@
 /*   By: minhkim <minhkim@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 10:13:20 by minhkim           #+#    #+#             */
-/*   Updated: 2021/10/28 10:13:21 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/10/28 10:37:05 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-bool	jisdigit(int c)
+bool	my_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }

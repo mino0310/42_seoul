@@ -6,7 +6,7 @@
 /*   By: minhkim <minhkim@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 10:17:42 by minhkim           #+#    #+#             */
-/*   Updated: 2021/10/28 10:17:42 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/10/28 10:40:40 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static void	usage(void)
 	static const char	*s2 = " time_to_die time_to_eat time_to_sleep ";
 	static const char	*s3 = "[number_of_times_each_philosopher_must_eat]";
 
-	jputstr((char *)s1, STDERR_FILENO);
-	jputstr((char *)s2, STDERR_FILENO);
-	jputendl((char *)s3, STDERR_FILENO);
+	my_putstr((char *)s1, STDERR_FILENO);
+	my_putstr((char *)s2, STDERR_FILENO);
+	my_putendl((char *)s3, STDERR_FILENO);
 }
 
 static void	pthread(void)
@@ -28,21 +28,21 @@ static void	pthread(void)
 	static const char	*s1 = "error : something went wrong";
 	static const char	*s2 = "create, detach, join process can be wrong";
 
-	jputendl((char *)s1, STDERR_FILENO);
-	jputendl((char *)s2, STDERR_FILENO);
+	my_putendl((char *)s1, STDERR_FILENO);
+	my_putendl((char *)s2, STDERR_FILENO);
 }
 
 static bool	meals_ready_to_eat(int ac, char **av, t_op *op, t_philo **philo)
 {
 	int		i;
 
-	if (!jatoi(&av[1], &op->total) || !jatoi(&av[2], &op->time_die)
-		|| !jatoi(&av[3], &op->time_eat) || !jatoi(&av[4], &op->time_nap))
+	if (!my_atoi(&av[1], &op->total) || !my_atoi(&av[2], &op->time_die)
+		|| !my_atoi(&av[3], &op->time_eat) || !my_atoi(&av[4], &op->time_nap))
 		return (false);
-	if (ac == 6 && !jatoi(&av[5], &op->limit))
+	if (ac == 6 && !my_atoi(&av[5], &op->limit))
 		return (false);
-	if (!jcalloc((void **)(&op->f), op->total, sizeof(t_mu))
-		|| !jcalloc((void **)(philo), op->total, sizeof(t_philo)))
+	if (!my_calloc((void **)(&op->f), op->total, sizeof(t_mu))
+		|| !my_calloc((void **)(philo), op->total, sizeof(t_philo)))
 		return (false);
 	i = -1;
 	while (++i < op->total)
@@ -84,7 +84,7 @@ int	main(int ac, char **av)
 	t_op	op;
 	t_philo	*philo;
 
-	jmemset(&op, 0, sizeof(t_op));
+	my_memset(&op, 0, sizeof(t_op));
 	philo = NULL;
 	if (ac < 5 || ac > 6 || !meals_ready_to_eat(ac, av, &op, &philo))
 		return (exit_invalid(&op, &philo, usage));

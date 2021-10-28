@@ -6,9 +6,10 @@
 /*   By: minhkim <minhkim@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 10:13:05 by minhkim           #+#    #+#             */
-/*   Updated: 2021/10/28 10:13:07 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/10/28 10:35:34 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "philo.h"
 
@@ -22,21 +23,21 @@ static bool	overflowed(int former, int latter)
 	return (false);
 }
 
-bool	jatoi(char **s, int *v)
+bool	my_atoi(char **s, int *v)
 {
 	int	sign;
 	int	tmp;
 
-	while (jisspace(**s))
+	while (my_isspace(**s))
 		++(*s);
 	sign = 1;
 	if (**s == '+' || **s == '-')
 		if (*((*s)++) == '-')
 			sign = -1;
-	if (!jisdigit(**s))
+	if (!my_isdigit(**s))
 		return (false);
 	*v = (*((*s)++) - '0') * sign;
-	while (jisdigit(**s))
+	while (my_isdigit(**s))
 	{
 		tmp = (*((*s)++) - '0');
 		if (sign < 0)
@@ -46,7 +47,7 @@ bool	jatoi(char **s, int *v)
 			return (false);
 		*v = tmp;
 	}
-	if (**s && !jisspace(**s))
+	if (**s && !my_isspace(**s))
 		return (false);
 	return (true);
 }

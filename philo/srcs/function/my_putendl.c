@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   jputendl.c                                         :+:      :+:    :+:   */
+/*   my_putendl.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jseo <jseo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,10 +12,10 @@
 
 #include "philo.h"
 
-void	jputendl(char *s, int fd)
+void	my_putendl(char *s, int fd)
 {
 	if (!s)
 		return ;
-	jputstr(s, fd);
-	jputchar('\n', fd);
+	my_putstr(s, fd);
+	my_putchar('\n', fd);
 }

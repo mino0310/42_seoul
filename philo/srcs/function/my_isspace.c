@@ -6,13 +6,13 @@
 /*   By: minhkim <minhkim@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 10:13:24 by minhkim           #+#    #+#             */
-/*   Updated: 2021/10/28 10:13:25 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/10/28 10:37:14 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-bool	jisspace(int c)
+bool	my_isspace(int c)
 {
 	return (c == ' ' || c == '\n' || c == '\r'
 		|| c == '\v' || c == '\f' || c == '\t');

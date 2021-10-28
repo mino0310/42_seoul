@@ -4,6 +4,7 @@
         "glut.h": "c",
         "algorithm": "c",
         "stdlib.h": "c",
-        "minitalk.h": "c"
+        "minitalk.h": "c",
+        "cstdlib": "c"
     }
 }

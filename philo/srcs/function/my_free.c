@@ -6,13 +6,13 @@
 /*   By: minhkim <minhkim@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 10:13:16 by minhkim           #+#    #+#             */
-/*   Updated: 2021/10/28 10:13:17 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/10/28 10:37:01 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	jfree(void **ptr)
+void	my_free(void **ptr)
 {
 	if (!(ptr && *ptr))
 		return ;

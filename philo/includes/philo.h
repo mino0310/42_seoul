@@ -6,7 +6,7 @@
 /*   By: minhkim <minhkim@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 10:07:21 by minhkim           #+#    #+#             */
-/*   Updated: 2021/10/28 10:07:22 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/10/28 10:40:49 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,16 +135,16 @@ void	philo_think(t_philo *philo);
 ** =============================================================================
 */
 
-bool	jatoi(char **s, int *v);
-bool	jcalloc(void **ptr, size_t cnt, size_t n);
-void	jfree(void **ptr);
-bool	jisdigit(int c);
-bool	jisspace(int c);
-void	*jmemset(void *s, int c, size_t n);
-void	jputchar(char c, int fd);
-void	jputendl(char *s, int fd);
-void	jputnbr(int n, int fd);
-void	jputstr(char *s, int fd);
-size_t	jstrlen(const char *s);
+bool	my_atoi(char **s, int *v);
+bool	my_calloc(void **ptr, size_t cnt, size_t n);
+void	my_free(void **ptr);
+bool	my_isdigit(int c);
+bool	my_isspace(int c);
+void	*my_memset(void *s, int c, size_t n);
+void	my_putchar(char c, int fd);
+void	my_putendl(char *s, int fd);
+void	my_putnbr(int n, int fd);
+void	my_putstr(char *s, int fd);
+size_t	my_strlen(const char *s);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: minhkim <minhkim@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 10:07:31 by minhkim           #+#    #+#             */
-/*   Updated: 2021/10/28 10:07:31 by minhkim          ###   ########.fr       */
+/*   Updated: 2021/10/28 10:40:58 by minhkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ static void	free_arg(t_op *op, t_philo **philo)
 	if (op->f)
 		while (++i < op->total)
 			pthread_mutex_destroy(&op->f[i]);
-	jfree((void **)(&op->f));
-	jfree((void **)(philo));
+	my_free((void **)(&op->f));
+	my_free((void **)(philo));
 	pthread_mutex_destroy(&op->t);
 	pthread_mutex_destroy(&op->p);
 }
